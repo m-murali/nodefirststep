@@ -5,6 +5,8 @@ const {ObjectID} = require('mongodb');
 var {mongoose} = require('./db/mongo-db-connection');
 var {User} = require("./db/model/user");
 
+var port = process.env.PORT || 3000;
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -75,6 +77,6 @@ app.delete("/users/:id", (req, res)=>{
     });
 });
 
-app.listen(3000, ()=>{
-    console.log("Server started on port no 3000")
+app.listen(port, ()=>{
+    console.log(`Server started on port no ${port}`);
 })
